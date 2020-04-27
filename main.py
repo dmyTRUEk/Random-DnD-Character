@@ -130,6 +130,8 @@ class Char:
             names = names_elf
         elif self.race == 'Halfling':
             names = names_halfling
+        elif self.race == 'Human':
+            names = names_human
         elif self.race == 'Dragonborn':
             names = names_dragonborn
         elif self.race == 'Gnome':
