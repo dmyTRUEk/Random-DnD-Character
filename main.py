@@ -174,19 +174,21 @@ class Char:
 
     
     def to_str (self):
-        res = '''
+        res_overspaced = '''
             name: {}
             race: {}
             class: {}
             aligment: {}
-            
             money: {}
-            
             height: {}
             body_type: {}
             clothes: {}
             clothes_color: {}
         '''.format(self.name, self.race, self.class_, self.aligment, self.money, self.height, self.body_type, self.clothes, self.clothes_color)
+
+        res = ''
+        for line in res_overspaced.splitlines():
+            res += line.lstrip() + '\n'
         
         return res
 
@@ -231,13 +233,13 @@ def main ():
         print('What you wanna do?')
         print('    NdX+B -> roll dice: just input 3d6+1 for example')
         print('    c -> create random char')
-        print('    exit -> exit program')
+        print('    exit | q -> exit program')
         print()
         
         action = input()
         # action = 'exit'
         
-        if action == 'exit':
+        if action == 'exit' or action == 'q':
             # todo('exit')
             print('Exiting...')
             sys.exit(0)
