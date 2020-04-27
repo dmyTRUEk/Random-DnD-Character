@@ -124,41 +124,49 @@ class Char:
         self.clothes_color = rnd.choice(clothes_color)
         
         names = ['No names for this race']
-        money_dice = '0d4'
-        
         if self.race == 'Dwarf':
             names = names_dwarf
-            money_dice = '3d4+1'
-            
         elif self.race == 'Elf':
             names = names_elf
-            money_dice = '3d4'
-            
         elif self.race == 'Halfling':
             names = names_halfling
-            money_dice = '2d4'
-            
         elif self.race == 'Dragonborn':
             names = names_dragonborn
-            money_dice = '4d4'
-            
         elif self.race == 'Gnome':
             names = names_gnome
-            money_dice = '3d4'
-            
         elif self.race == 'Halfelf':
             names = names_halfelf
-            money_dice = '2d4+2'
-            
         elif self.race == 'Halfork':
             names = names_halfork
-            money_dice = '1d4+10'
-            
         elif self.race == 'Tiefling':
             names = names_tiefling
-            money_dice = '4d4'
-        
         self.name = rnd.choice(names)
+
+        money_dice = '0d4'
+        if self.class_ == 'Bard':
+            money_dice = '5d4'
+        elif self.class_ == 'Barbarian':
+            money_dice = '2d4'
+        elif self.class_ == 'Warrior':
+            money_dice = '5d4'
+        elif self.class_ == 'Wizard':
+            money_dice = '4d4'
+        elif self.class_ == 'Druid':
+            money_dice = '2d4'
+        elif self.class_ == 'Priest':
+            money_dice = '5d4'
+        elif self.class_ == 'Warlock':
+            money_dice = '4d4'
+        elif self.class_ == 'Monk':
+            money_dice = '1d2'
+        elif self.class_ == 'Paladin':
+            money_dice = '5d4'
+        elif self.class_ == 'Rogue':
+            money_dice = '4d4'
+        elif self.class_ == 'Ranger':
+            money_dice = '5d4'
+        elif self.class_ == 'Magician':
+            money_dice = '3d4'
         self.money = 10*roll(money_dice)
 
 
