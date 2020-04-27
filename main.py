@@ -66,6 +66,8 @@ heights = ['Very small', 'Small', 'A bit small', 'Avarage', 'A bit high', 'High'
 
 body_types = ['Very thick', 'Thick', 'A bit thick', 'Avarage', 'A bit thin', 'Thin', 'Very thin']
 
+ages = ['Toddler (10%)', 'Child (20%)', 'Teenager (30%)', 'Young (40%)', 'Adult (50%)', 'Mature (60%)', 'In ages (70%)', 'Old (80%)', 'Very old (90%)', 'Ancient (100%)']
+
 clothes = ['Very rich', 'Rich', 'Richer than avarage', 'Avarage', 'Less rich than avarage', 'Poor', 'Very poor']
 
 clothes_color = \
@@ -108,8 +110,9 @@ class Char:
     
     money = None
     
-    body_type = None
     height = None
+    body_type = None
+    age = None
     clothes = None
     clothes_color = None
     
@@ -118,8 +121,9 @@ class Char:
         self.class_ = rnd.choice(classes)
         self.aligment = rnd.choice(aligments)
         
-        self.body_type = rnd.choice(body_types)
         self.height = rnd.choice(heights)
+        self.body_type = rnd.choice(body_types)
+        self.age = rnd.choice(ages)
         self.clothes = rnd.choice(clothes)
         self.clothes_color = rnd.choice(clothes_color)
         
@@ -174,7 +178,7 @@ class Char:
 
     
     def to_str (self):
-        res_overspaced = '''
+        res_overspaced = ''' \
             name: {}
             race: {}
             class: {}
@@ -182,9 +186,10 @@ class Char:
             money: {}
             height: {}
             body_type: {}
+            age: {}
             clothes: {}
             clothes_color: {}
-        '''.format(self.name, self.race, self.class_, self.aligment, self.money, self.height, self.body_type, self.clothes, self.clothes_color)
+        '''.format(self.name, self.race, self.class_, self.aligment, self.money, self.height, self.body_type, self.age, self.clothes, self.clothes_color)
 
         res = ''
         for line in res_overspaced.splitlines():
@@ -222,6 +227,8 @@ def main ():
 
     for _ in range(10):
         print(dice, '->', roll(dice))
+
+    print('\n\n')
     
     for _ in range(20):
         print(Char().to_str()+'\n')
