@@ -1,6 +1,6 @@
 # TODO:
 
-- add char age
+- nothing for now ;)
 
 
 
